@@ -74,7 +74,6 @@ class Field{
                 return true
 
             case Events['down']:
-                
                 for (let i = 0; i < this.current_block_loc.length; i++) {
                     new_cords.push([this.current_block_loc[i][0]+1,this.current_block_loc[i][1]])
                 }
@@ -156,13 +155,10 @@ class Field{
             }
             return true
         }
-        console.log('new_block')
+
         let st_cs = this.current_block_loc.sort((a,b)=>a[0]-b[0])
         for (let [y,x] of st_cs){
-            console.log(y)
             if (!used_y.includes(y) && check_row(this.map[y])){
-                console.log('true')
-                console.log(this.map)
                 this.map.splice(y,1)
                 this.map.unshift(new Array(this.width))
                 used_y.push(y)
@@ -228,7 +224,6 @@ class Game{
     }
 
     stop(){
-        console.log('stopping')
         clearInterval(this.int_id)
         removeEventListener('keydown', this.func )
     }
